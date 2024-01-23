@@ -1,0 +1,413 @@
+/* ye universal selector isliye use kia hai taaki hume apni jo bhi pad and margin hai vo 0 se reset krde */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* initialise a variable at the top i.e ek variable bana lia 'a' by --a at root */
+:root {
+    --a: 0;
+}
+
+body {
+    background-color: black;
+    color: white;
+}
+
+.left {
+    width: 25vw;
+    padding: 10px;
+}
+
+.right {
+    width: 75vw;
+    position: relative;
+}
+
+.home ul li {
+    display: flex;
+    width: 15px;
+    gap: 23px;
+    list-style-type: none;
+    padding-top: 24px;
+}
+
+.heading {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: 14px 3px;
+    gap: 10px;
+    font-size: 12px;
+}
+
+.heading img {
+    width: 25px;
+}
+
+.library {
+    min-height: 70vh;
+    position: relative;
+}
+
+.footer {
+    display: flex;
+    gap: 10px;
+    font-size: 10px;
+    position: absolute;
+    bottom: 10px;
+    padding: 10px 0;
+}
+
+.footer a {
+    color: gray;
+}
+
+.right {
+    margin: 26px 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(34, 34, 34);
+}
+
+.header nav {
+    display: flex;
+    gap: 5px;
+    padding: 20px;
+}
+
+.nav {
+    margin: 0 20px;
+}
+
+.nav img {
+    width: 15px;
+    padding: 5px;
+}
+
+.spotifyPlaylists {
+    padding: 16px;
+}
+
+.spotifyPlaylists h1 {
+    padding: 16px;
+}
+
+.card {
+    width: 200px;
+    padding: 7px;
+    border-radius: 7px;
+    background-color: #252525;
+    position: relative;
+    transition: all 0.9s;
+}
+
+.card:hover {
+    cursor: pointer;
+    background-color: rgb(46, 46, 46);
+    --a: 1;
+}
+
+/* isme flex ko wrap krna hoga taaki jyada cards hue to vo ek line ke baad continue honge neeche ki lines ko fill krna */
+.cardContainer {
+    display: flex;
+    gap: 10px;
+    margin: 30px;
+    flex-wrap: wrap;
+    width: 90%;
+    /* ab isko max height sirf 70 times of viewport do taaki hume neeche play vali cheez lagani hai to ye neeche tak na jaaye isliye */
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+/* iska matlab hai ki card ke jo bhi immediate child hai jitne bhi unn sab immediate childs ki property hogi ye */
+.card>* {
+    padding-top: 5px;
+}
+
+.card img {
+    width: 100%;
+    /* object-fit contain se matlab hai ki image ko card ke width me fit hona pdega with it's original size */
+    object-fit: contain;
+    max-height: 165px;
+    border-radius: 25px;
+}
+
+.play {
+    width: 28px;
+    height: 28px;
+    background-color: #1fdf64;
+    border-radius: 50%;
+    border: 2px solid #000;
+    padding: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 100px;
+    right: 16px;
+    /* opacity abhi ke lie 0 rakhenge as hume hide chahiye ye jab tak hover na ho ispe */
+    opacity: var(--a);
+}
+
+.signupbtn {
+    background-color: rgb(34, 34, 34);
+    color: rgb(156, 148, 148);
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    margin: 0 12px;
+}
+
+.signupbtn:hover {
+    font-size: 17px;
+    color: white;
+}
+
+.loginbtn {
+    background-color: white;
+    color: black;
+    border: 2px none black;
+    padding: 15px;
+    border-radius: 47px;
+    margin: 11px 12px;
+    cursor: pointer;
+    /* width ka dhyan rakhna zaroor taaki hum uss button ki width sambhal sake ki kitna choda chahiye hume */
+    width: 110px;
+}
+
+.loginbtn:hover {
+    font-weight: bold;
+    width: 115px;
+}
+
+.playbar {
+    width: 67vw;
+    background-color: white;
+    /* position fixed and bottom 0 is ki ye bottom 0 pe jaake fix rhega vaha pe chahe scroll krle hum fir bhi */
+    position: fixed;
+    bottom: 30px;
+    padding: 10px;
+    filter: invert(1);
+    background-color: #dad5d5;
+    border-radius: 30px;
+    height: 70px;
+}
+
+.playbar .musicinfo {
+    width: 250px;
+}
+
+/* playbar pe humne filter invert(1) lagaya hua hai to yaani seekbar or circle me bhi jo color denge vo bhi invert ho jaenge as ye playbar ke hi child hai isliye */
+.seekbar {
+    border: 2px solid black;
+    background-color: black;
+    border-radius: 10px;
+    width: 95%;
+    height: 1px;
+    position: absolute;
+    left: 2%;
+    bottom: 7px;
+    cursor: pointer;
+}
+
+.circle {
+    width: 13px;
+    height: 13px;
+    background-color: black;
+    border-radius: 15px;
+    position: relative;
+    bottom: 6px;
+    left: 0%;
+    transition: left 0.5s;
+}
+
+.songbuttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.songlist ul {
+    padding: 0 15px;
+}
+
+.songlist ul li {
+    /* decimal counting dega hume */
+    list-style-type: decimal;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    cursor: pointer;
+    padding: 13px;
+    margin: 12px 0;
+    border: 1px solid white;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.songlist .songinfo {
+    width: 344px;
+}
+
+.timevol {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.songinfo div {
+    word-break: break-all;
+}
+
+.songlist {
+    height: 444px;
+    overflow: auto;
+}
+
+.playnow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.playnow span {
+    display: flex;
+    width: 70px;
+    font-size: 15px;
+}
+
+.songbuttons img {
+    cursor: pointer;
+}
+
+.musicinfo {
+    color: black;
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.songtime {
+    color: black;
+    width: 136px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.abovebar {
+    display: flex;
+    justify-content: space-between;
+    height: 54px;
+}
+
+/* making our playlist svg as well as cross svg initially hidden */
+.playlist {
+    display: none;
+}
+
+.cross {
+    display: none;
+}
+
+.playlistcontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+}
+
+.volume {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.range input {
+    cursor: pointer;
+}
+
+
+/* now writing responsive media query that when we have to scale in our website then our left part completely vanish and our right part(that includes right and the playbar) takes complete width of our viewport */
+@media screen and (max-width: 1200px) {
+    .left {
+        position: absolute;
+        left: -120%;
+        transition: all .3s;
+        z-index: 1;
+        /* this is done as when it comes from left so it comes above the other +nt at that location */
+        width: 333px;
+        background-color: black;
+    }
+
+    .left .cross {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        width: 30px;
+    }
+
+    .right {
+        width: 100vw;
+    }
+
+    .playbar {
+        width: 88vw;
+        height: 108px;
+    }
+
+    .seekbar {
+        /* same width as parent i.e as playbar */
+        width: 88vw;
+    }
+
+    .abovebar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        height: 91px;
+    }
+
+    /* this is done ki playlist ki svg pehle na dikhe and jab bhi hum isko chota kre to ye dikh jaye jise click krke hum apne songe ko le aenge sode se nikalke */
+    .playlist {
+        display: block;
+    }
+
+    .cross {
+        display: block;
+    }
+
+    .card {
+        width: 55vw;
+    }
+
+    .cardContainer {
+        justify-content: center;
+        max-height: 57vh;
+        margin: 16px;
+        padding: 13px;
+    }
+
+    .timevol {
+        flex-direction: column;
+        gap: 12px;
+    }
+}
+
+@media (max-width: 500px) {
+    .card{
+        width: auto;
+    }
+}

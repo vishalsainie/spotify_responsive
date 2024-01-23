@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="utility.css">
+    <title>Spotify - Web Player: Music for everyone</title>
+</head>
+
+<body>
+    <div class="container flex bg-black">
+        <!-- making 2 parts left and rt as in original spotify -->
+        <div class="left"> <!-- ab ye left vala part 2 part me divided hai to do that now-->
+
+            <!-- left me ek cross aega jab hum apni playlist ke section ko bahar nikalenge......usko vapas ander krne ke lie to ye isliye lagaya hai -->
+            <div class="cross">
+                <img class="invert" src="cross.svg" alt="">
+            </div>
+
+            <div class="home rounded m1 p1 bg-grey">
+                <!-- isme 3 hai spotify svg, search svg and home svg jo hum ul ki form me krenge-->
+                <div class="logo"><img class="invert" src="logo.svg" alt=""></div>
+                <ul>
+                    <li><img class="invert" src="home.svg" alt="home">Home</li>
+                    <li><img class="invert" src="search.svg" alt="search">Search</li>
+                </ul>
+            </div>
+
+            <div class="library rounded m1 p1 bg-grey">
+                <div class="heading">
+                    <img class="invert" src="library.svg" alt="">
+                    <h3>Your Library</h3>
+                </div>
+
+                <!-- ye ek card ki terah dikhega jisme ek music ka image hoga + song name + song artist -->
+                <div class="songlist">
+                    <ul>
+                        <!-- ab ye jo li banayi hai na isse hum apni script me paste kr denge in li section jo humne banayi thi vaha pe in main fn at line 45. -->
+                        <!-- <li>
+                            har ek li will be having 1 music image + song name + song artist + ek play now ka button as well
+                            <img class="invert" src="music.svg" alt="">
+                            <div class="songinfo">
+                                <div>Song Name</div>
+                                <div>Song Artist</div>
+                            </div>
+                            <div class="playnow">
+                                <span>Play Now</span>
+                                <img class="invert" src="play.svg" alt="">
+                            </div>
+                        </li> -->
+                    </ul>
+                </div>
+
+                <!-- footer chep do as it is of spotify -->
+                <div class="footer">
+                    <div><a href="https://www.spotify.com/in-en/legal/"><span>Legal</span></a></div>
+                    <div><a href="https://www.spotify.com/in-en/privacy/"><span>Privacy Center</span></a></div>
+                    <div><a href="https://www.spotify.com/in-en/legal/privacy-policy/"><span>Privacy Policy</span></a>
+                    </div>
+                    <div><a href="https://www.spotify.com/in-en/legal/cookies-policy/"><span>Cookies</span></a></div>
+                    <div><a href="https://www.spotify.com/in-en/legal/privacy-policy/#s3"><span>About Ads</span></a>
+                    </div>
+                    <div><a href="https://www.spotify.com/in-en/accessibility/"><span>Accessibility</span></a></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- right vale side me 2 part hai header and body -->
+        <div class="right rounded bg-grey">
+            <!-- header me 2 part hai nav bar with 2 svg i.e < and > + 2 buttons signup and login ke -->
+            <div class="header">
+                <div class="nav">
+                    <div class="playlistcontainer">
+                        <img width="60" class="invert playlist" src="playlist.svg" alt="">
+                        <img class="invert" src="leftSign.svg" alt="">
+                        <img class="invert" src="rightSign.svg" alt="">
+                    </div>
+                </div>
+
+                <div class="buttons">
+                    <button class="signupbtn">Sign up</button>
+                    <button class="loginbtn">Log in</button>
+                </div>
+            </div>
+
+            <!-- ab spotifyPlaylists banao jisme ek h2 hoga named spotify playlist + ek hoga cards ka container -->
+            <div class="spotifyPlaylists">
+                <h2>Spotify Playlists</h2>
+
+                <!-- ab iss card container me honge multiple cards and hum 1 card design krenge and remaining ko replicate kr denge -->
+                <div class="cardContainer">
+
+                    <!-- har ek card me ek image hai, ek h3 hai, ek para hai and ek play button hai jo hover krne pe aega -->
+
+                    <!-- har ek card me ek data-folder attribute lagado ki vo konsa folder lega on clicking............to DATA-FOLDER ka mind me dhyan rakhna always -->
+
+                    <!-- ye jo current div hai from line 100 till line 111 is our 1 card and aise bhot card banaye hai humne....jisme hamre songs honge -->
+                    <!-- <div data-folder ="myfav" class="card"> -->
+                        <!-- card ke ander ek play button bhi banega jo ki hover krne pe aega -->
+                        <!-- <div class="play">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 20V4L19 12L5 20Z" stroke="#141B34" stroke-width="1.5"
+                                    stroke-linejoin="round" />
+                                <g transform="translate(6, 6)">
+                                    <polygon points="0 0 14 9 0 18 0 0" fill="#141B34" stroke="none"></polygon>
+                                </g>
+                            </svg>
+                        </div>
+
+                        <img src="https://i.scdn.co/image/ab67706f0000000254473de875fea0fd19d39037" alt="">
+                        <h3>Happy Hits!</h3>
+                        <p>chill beats, lofi vibes, new tracks every week...</p>
+                    </div>
+
+                    <div data-folder="bolly" class="card">
+                        <div class="play">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 20V4L19 12L5 20Z" stroke="#141B34" stroke-width="1.5"
+                                    stroke-linejoin="round" />
+                                <g transform="translate(6, 6)">
+                                    <polygon points="0 0 14 9 0 18 0 0" fill="#141B34" stroke="none"></polygon>
+                                </g>
+                            </svg>
+                        </div>
+
+                        <img src="https://i.scdn.co/image/ab67706f0000000254473de875fea0fd19d39037" alt="">
+                        <h3>Happy Hits!</h3>
+                        <p>chill beats, lofi vibes, new tracks every week...</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="play">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 20V4L19 12L5 20Z" stroke="#141B34" stroke-width="1.5"
+                                    stroke-linejoin="round" />
+                                <g transform="translate(6, 6)">
+                                    <polygon points="0 0 14 9 0 18 0 0" fill="#141B34" stroke="none"></polygon>
+                                </g>
+                            </svg>
+                        </div>
+                        <img src="https://i.scdn.co/image/ab67706f0000000254473de875fea0fd19d39037" alt="">
+                        <h3>Happy Hits!</h3>
+                        <p>chill beats, lofi vibes, new tracks every week...</p>
+                    </div> -->
+                </div>
+
+                <!-- now making our neeche ka playbar -->
+                <div class="playbar">
+                    <!-- isme ek seekbar bhi aega and uss seekbar me ek circle hoga jo aage ki or move krta rhega jaise jaise gaana over hoga -->
+
+                    <div class="abovebar">
+
+                        <!-- isme pehle song info aegi ki konsa gaana chal rha hai and all.....then isme 3 button aenge prev+play+next ke........then isme song ka time aega -->
+                        <div class="musicinfo">
+
+                        </div>
+
+                        <!-- isme sbse pehle 3 songbuttons banenge -->
+                        <div class="songbuttons">
+                            <img id="previous" class="bright" src="prevsong.svg" alt="">
+                            <img id="play" class="bright" src="play.svg" alt="">
+                            <img id="next" class="bright" src="nextsong.svg" alt="">
+                        </div>
+
+                        <div class="timevol">
+                            
+                            <div class="songtime">
+
+                            </div>
+                            
+                            <div class="volume invert">
+                                <img width="25" class="invert" src="volume.svg" alt="">
+
+                                <!-- ab hum iss volume pe jab bhi hover krenge tab hume ek range mil jaye i.e ek input type banao of range subtype..........ye ek yellow color ka seekbar banke aa jayega humpe........dhyan rakhna mind me issko hamesha se bhi hamesha -->
+                                <div class="range">
+                                    <input type="range" name="volume" id="">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="seekbar">
+                            <div class="circle"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
